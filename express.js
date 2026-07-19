@@ -32,6 +32,26 @@ function login(req, res){
 app.get("/profile", show_profile);
 app.post("/login", login);
 
+function signup(req,res){
+    const username = req.body.username;
+    const password = req.body.password;
+
+    if (!username){
+        return res.send("Username required")
+    };
+    if (!password){
+        return res.send("password required")
+    };
+    if (database[username]){
+        res.send("username already in database")
+    };
+    database[username] = {password: password};
+
+    return res.send("signup successfull");
+}
+
+app.post("/signup", signup);
+
 app.listen(3000, ()=> {
     console.log("Server working live on https//:localhost3000")
 });
