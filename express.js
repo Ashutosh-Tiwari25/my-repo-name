@@ -55,4 +55,3 @@ app.post("/signup", signup);
 app.listen(3000, ()=> {
     console.log("Server working live on https//:localhost3000")
 });
-
