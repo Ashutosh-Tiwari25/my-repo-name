@@ -3,9 +3,8 @@ const app = express();
 const bcrypt = require("bcrypt");
 app.use(express.json());
 
-database = {
-    Ashutosh : {password: 12345},
-    Rahul : {password: 4567},
+const database = {
+
 };
 
 async function loginn(req, res) {
@@ -16,7 +15,7 @@ async function loginn(req, res) {
         return res.send("Username not found")
     };
 
-    const isMatch = await bcrypt.compare(password, username[database].password);
+    const isMatch = await bcrypt.compare(password, database[username].password);
 
     if (isMatch){
         return res.send("welcome to jinstagram")
@@ -25,7 +24,7 @@ async function loginn(req, res) {
     return res.send ("wrong password");
 }
 
-app.get ("/loginn", loginn);
+app.post("/loginn", loginn);
 
 app.listen(3000, ()=> {
     console.log("running live on https://localhost3000")
