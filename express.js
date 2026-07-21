@@ -7,7 +7,6 @@ const database = {
     Ashutosh :{password:"12345"},
     Rahul :{password:"34567"}
 };
-
 function show_profile (req, res){
     res.send ("Your profile")
 };
