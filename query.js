@@ -65,9 +65,9 @@ function show_profile(req,res){
     return res.send("Your profile")
 };
 
-app.get("/profile", show_profile);
 app.post("/signup", signup);
 app.post ("/login", login);
+app.get("/profile", show_profile);
 
 app.listen(3000, ()=> {
      console.log("server running on port http://localhost:3000");
