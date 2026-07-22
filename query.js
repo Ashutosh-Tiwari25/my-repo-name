@@ -34,7 +34,7 @@ async function signup(req,res) {
 
     const hashedpassword = await bcrypt.hash(password, 10);
 
-    const insert  = db.prepare("INSERT INTO USERS(username, password) VALUES(?,?)").run(username, hashedpassword);
+    const insert  = db.prepare("INSERT INTO USERS(username, password) VALUES(?,?)").run(username, password);
     
     return res.send("SignUp successful");
     
