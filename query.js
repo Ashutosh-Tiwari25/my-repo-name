@@ -26,7 +26,9 @@ async function signup(req,res) {
         return res.send("password required")
     };
 
-    const exist = db.prepare("SELECT * FROM users WHERE username = ?").get(username);
+    const exist = db.prepare("SELECT * FROM users WHERE username = ?")
+    
+    .get(username);
 
     if (exist){
         return res.send("username is already taken")
