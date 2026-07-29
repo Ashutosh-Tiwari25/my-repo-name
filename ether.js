@@ -1,4 +1,4 @@
-const jwt = reuire("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const express = require ("express");
 const {ethers} = require ("ethers");
 
