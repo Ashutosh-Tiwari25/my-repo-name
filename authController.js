@@ -2,7 +2,7 @@ const bcrypt = require ("bcrypt");
 const jwt = require("jsonwebtoken");
 const {ethers} = require("ethers");
 const db = require ("./database");
-const jwt_secret = require ("./authmiddleware");
+const { verify_token } = require("./authmiddleware");
 
 async function signup(req,res) {
     const username = req.body.username;
@@ -38,7 +38,7 @@ async function login (req,res) {
         return res.send("username does not exist");
     }
 
-    const isMatch = await bcrypt.compare(password,hashedpassword);
+    const isMatch = await bcrypt.compare(password, exist.password);
 
     if(!isMatch){
         return res.send("wrong password");
@@ -73,4 +73,4 @@ function verifySignature(req,res){
     return res.send("Signature verification failed");
 };
 
-module.exports = (signup, login, show_profile, get_message, verifySignature);
+module.exports = {signup, login, show_profile, get_message, verifySignature};
