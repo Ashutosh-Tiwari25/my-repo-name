@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 
 const{signup, login, show_profile, get_message, verifySignature} = require("./authController");
 const { verify_token } = require("./authmiddleware");
