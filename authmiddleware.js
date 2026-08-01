@@ -21,6 +21,6 @@ try {
     return res.send("Invalid token")
     
 };
-}
+};
 
 module.exports= {verify_token, jwt_secret};
