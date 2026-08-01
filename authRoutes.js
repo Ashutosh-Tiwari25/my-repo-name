@@ -10,4 +10,4 @@ router.get("/profile", verify_token, show_profile);
 router.get("/web3message", get_message);
 router.post("/web3Verify", verifySignature);
 
-module.exports = router;
+module.exports = {router};
