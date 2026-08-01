@@ -4,7 +4,7 @@ const jwt_secret = "your_secret_key";
 
 function verify_token(req,res,next){
 
-const authHeader= req.body.authenticator;
+const authHeader= req.headers.authenticator;
 
 if(!authHeader){
     return res.send("no token provided");
