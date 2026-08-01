@@ -10,4 +10,4 @@ db.prepare(`
      )
 `).run();
 
-module.exports = db;
+module.exports = {db};
