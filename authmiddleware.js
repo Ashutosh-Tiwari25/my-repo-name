@@ -7,10 +7,10 @@ function verify_token(req,res,next){
 const authHeader= req.body.authenticator;
 
 if(!authHeader){
-    return res.send("no tokenprovided");
+    return res.send("no token provided");
 }
 
-const token  = authHeader.split("")[1];
+const token  = authHeader.split(" ")[1];
 
 try {
     const decoded = jwt.verify(token, jwt_secret);
