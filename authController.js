@@ -25,7 +25,7 @@ async function signup(req,res) {
 
     const insert = db.prepare("INSERT INTO users(username,password)VALUES (?,?)").run(username, hashedpassword);
 
-    return res.send ("Signup Successfull");
+    return res.send ("Signup Successful");
 };
 
 async function login (req,res) {
@@ -45,7 +45,7 @@ async function login (req,res) {
     }
 
     const token = jwt.sign({username: exist.username}, jwt_secret, {expiresIn: "1h"});
-    return res.json({message: "Welcome to Insagram", token});
+    return res.json({message: "Welcome to Instagram", token});
     
 }; 
 
