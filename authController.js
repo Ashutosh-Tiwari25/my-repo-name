@@ -1,7 +1,7 @@
 const bcrypt = require ("bcrypt");
 const jwt = require("jsonwebtoken");
 const {ethers} = require("ethers");
-const db = require ("./database");
+const {db} = require ("./database");
 const { verify_token, jwt_secret } = require("./authMiddleware");
 
 async function signup(req,res) {
