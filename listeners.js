@@ -14,7 +14,7 @@ function startListening(){
         console.log("ReceiverAddress", ReceiverAddress);
         console.log("Value", value.toString());
     
-        db.prepare(`
+        const insertTransfer = db.prepare(`
             INSERT INTO transfers(from_address, to_address, value, tx_hash)
             VALUES(?, ?, ?, ?)
             `).run(SenderAddress, ReceiverAddress, value.toString(), event.log.transactionHash);
