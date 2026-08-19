@@ -2,7 +2,7 @@ const {ethers} = require("ethers");
 const provider = require ("./provider");
 const db  = require("./database");
 
-const contractaddress = "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B1";
+const contractAddress = "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B1";
 
 const erc20Abi = ["event Transfer(address indexed from, address indexed to, unint256 value)"];
 
