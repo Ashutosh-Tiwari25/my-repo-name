@@ -8,16 +8,16 @@ const erc20Abi = ["event Transfer(address indexed from, address indexed to, unin
 
 const contract = new ethers.contract(contractAddress, erc20Abi, provider);
 function startListening(){
-    contract.on("Transfer", (SenderAddress, ReceiverAddress, transfferedAmount, event)=>{
+    contract.on("Transfer", (senderAddress, receiverAddress, transfferedAmount, event)=>{
         console.log("Transfer detected!");
-        console.log("SenderAddress:", SenderAddress);
-        console.log("ReceiverAddress", ReceiverAddress);
+        console.log("SenderAddress:", senderAddress);
+        console.log("ReceiverAddress", receiverAddress);
         console.log("Value", value.toString());
     
         const insertTransfer = db.prepare(`
             INSERT INTO transfers(from_address, to_address, value, tx_hash)
             VALUES(?, ?, ?, ?)
-            `).run(SenderAddress, ReceiverAddress, value.toString(), event.log.transactionHash);
+            `).run(senderAddress, receiverAddress, value.toString(), event.log.transactionHash);
 
         });
 
