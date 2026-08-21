@@ -17,7 +17,12 @@ function startListening(){
         const insertTransfer = db.prepare(`
             INSERT INTO transfers(from_address, to_address, value, tx_hash)
             VALUES(?, ?, ?, ?)
-            `).run(senderAddress, receiverAddress, value.toString(), event.log.transactionHash);
+            `);
+            insertTransfer.run(
+                senderAddress, 
+                receiverAddress, 
+                value.toString(), 
+                event.log.transactionHash);
 
         });
 
