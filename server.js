@@ -1,8 +1,11 @@
 const express = require("express");
 const authRoutes = require("./authRoutes");
+const transferRoutes = require("./transferRoutes");
 
 const app = express();
 app.use(express.json());
+
+app.use("/", transferRoutes);
 
 app.use("/", authRoutes);
 
