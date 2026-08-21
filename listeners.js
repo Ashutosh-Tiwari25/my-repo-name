@@ -4,11 +4,11 @@ const db  = require("./database");
 
 const contractAddress = "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B1";
 
-const erc20Abi = ["event Transfer(address indexed from, address indexed to, unint256 value)"];
+const erc20Abi = ["event Transfer(address indexed from, address indexed to, uint256 value)"];
 
-const contract = new ethers.contract(contractAddress, erc20Abi, provider);
+const contract = new ethers.Contract(contractAddress, erc20Abi, provider);
 function startListening(){
-    contract.on("Transfer", (senderAddress, receiverAddress, transfferedAmount, event)=>{
+    contract.on("Transfer", (senderAddress, receiverAddress, transferedAmount, event)=>{
         console.log("Transfer detected!");
         console.log("SenderAddress:", senderAddress);
         console.log("ReceiverAddress", receiverAddress);
@@ -21,7 +21,7 @@ function startListening(){
             insertTransfer.run(
                 senderAddress, 
                 receiverAddress, 
-                value.toString(), 
+                transferedAmount.toString(), 
                 event.log.transactionHash);
 
         });
